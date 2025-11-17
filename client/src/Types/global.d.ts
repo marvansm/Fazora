@@ -3,7 +3,7 @@ export type children = {
 };
 
 export type headingProps = {
-  tag: string;
-  title: string;
-  desc: string;
+  tag?: string | ReactNode;
+  title?: string;
+  desc?: string;
 };

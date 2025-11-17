@@ -6,3 +6,15 @@ body {
   font-family: "Manrope", sans-serif;
   background-color: #f8f8f8;
 }
+
+.avatar-box {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+.avatar-image {
+  width: 38px !important;
+  height: 38px !important;
+  object-fit: cover;
+  border-radius: 9999px;
+}
