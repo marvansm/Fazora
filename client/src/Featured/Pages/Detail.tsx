@@ -20,7 +20,7 @@ const Detail = () => {
 
   return (
     <div>
-      <DetailTemp name={name} loading={isLoading} error={error} />
+      <DetailTemp name={name} houseId={houseId} loading={isLoading} error={error} />
     </div>
   );
 };
