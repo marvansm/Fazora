@@ -1,3 +1,4 @@
+import FAQSection from "../Section/FAQSection";
 import LuxurySection from "../Section/LuxurySection";
 import PremiumSection from "../Section/PremiumSection";
 import TestimonialSection from "../Section/TestimonialSection";
@@ -8,6 +9,7 @@ const HomeTemp = () => {
       <PremiumSection />
       <LuxurySection />
       <TestimonialSection />
+      <FAQSection />
     </div>
   );
 };
