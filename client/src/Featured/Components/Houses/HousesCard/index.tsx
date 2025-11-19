@@ -1,9 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import type { HousesCardProps } from "../../../../Types/global";
 
-const HousesCard = ({ name, image, location, price }: HousesCardProps) => {
+const HousesCard = ({ id, name, image, location, price }: HousesCardProps) => {
   return (
-    <div className="rounded-3xl overflow-hidden relative group cursor-pointer ">
+    <Link to={`/detail/${id}`} className="rounded-3xl overflow-hidden relative group block">
+      <div className="overflow-hidden relative group cursor-pointer ">
       <img
         src={image}
         alt=""
@@ -43,7 +45,8 @@ const HousesCard = ({ name, image, location, price }: HousesCardProps) => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#fff6] p-[11px] w-11 h-11 backdrop-blur-[2px] rounded-[99px] opacity-0 group-hover:opacity-100 duration-300">
         <ArrowUpRight color="white" />
       </div>
-    </div>
+      </div>
+    </Link>
   );
 };
 

@@ -48,15 +48,23 @@ const PremiumSection = () => {
         desc="Luxury residences where design meets comfort"
       />
       <div className="grid grid-cols-2 gap-8 mt-11">
-        {data?.data?.map((item: any) => (
-          <HousesCard
-            key={item?.id}
-            name={item?.name}
-            location={item?.location}
-            price={item?.price}
-            image={`http://localhost:1337${item?.image?.url}`}
-          />
-        ))}
+        {data?.data?.map((item: any) => {
+          const attrs = item?.attributes ?? item;
+          const imgPath =
+            attrs?.image?.data?.attributes?.url ?? attrs?.image?.url ?? attrs?.image ?? "";
+          const imgSrc = imgPath ? `http://localhost:1337${imgPath}` : "";
+
+          return (
+            <HousesCard
+              key={item?.id ?? attrs?.id}
+              id={item?.id ?? attrs?.id}
+              name={attrs?.name}
+              location={attrs?.location}
+              price={attrs?.price}
+              image={imgSrc}
+            />
+          );
+        })}
       </div>
       <div className="grid grid-cols-4 my-[100px] gap-5">
         {services &&

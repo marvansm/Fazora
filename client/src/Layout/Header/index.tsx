@@ -10,7 +10,7 @@ import SaveToken from "../../Featured/Components/SaveToken";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center mx-auto max-w-[1200px] p-3">
+    <div className="flex items-center justify-center mx-auto max-w-[1200px] p-3 relative z-99999">
       <div className="grid grid-cols-2 justify-between w-full items-center">
         <div className="w-[70px] h-auto overflow-hidden">
           <img

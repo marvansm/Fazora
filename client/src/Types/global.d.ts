@@ -12,4 +12,5 @@ export type HousesCardProps = {
   image: string;
   location: string;
   price: number;
+  id?: number | string;
 };
