@@ -1,7 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import Heading from "../../Common/Heading";
 import HousesCard from "../../Components/Houses/HousesCard";
+import ApiServices from "../../../Services/api";
 
 const PremiumSection = () => {
+  const api = new ApiServices("http://localhost:1337/api");
+  const { data } = useQuery({
+    queryKey: ["houses"],
+    queryFn: () => api.getData("houses?populate=*"),
+  });
+
   const services = [
     {
       id: 1,
@@ -40,10 +48,15 @@ const PremiumSection = () => {
         desc="Luxury residences where design meets comfort"
       />
       <div className="grid grid-cols-2 gap-8 mt-11">
-        <HousesCard />
-        <HousesCard />
-        <HousesCard />
-        <HousesCard />
+        {data?.data?.map((item: any) => (
+          <HousesCard
+            key={item?.id}
+            name={item?.name}
+            location={item?.location}
+            price={item?.price}
+            image={`http://localhost:1337${item?.image?.url}`}
+          />
+        ))}
       </div>
       <div className="grid grid-cols-4 my-[100px] gap-5">
         {services &&

@@ -7,3 +7,9 @@ export type headingProps = {
   title?: string;
   desc?: string;
 };
+export type HousesCardProps = {
+  name: string;
+  image: string;
+  location: string;
+  price: number;
+};

@@ -1,10 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
+import type { HousesCardProps } from "../../../../Types/global";
 
-const HousesCard = () => {
+const HousesCard = ({ name, image, location, price }: HousesCardProps) => {
   return (
     <div className="rounded-3xl overflow-hidden relative group cursor-pointer ">
       <img
-        src="https://cdn.prod.website-files.com/68c0e3e4af3be748783bb100/68c0f540a40a075623084298_Modern%20Coastal%20Retreat.png"
+        src={image}
         alt=""
         className="w-full h-[350px] object-cover group-hover:scale-[1.1] duration-1000"
       />
@@ -14,7 +15,7 @@ const HousesCard = () => {
             src="https://cdn.prod.website-files.com/68c0e3e4af3be748783bb0f3/68c0f238ec1660243de7e8f4_mingcute--location-line.svg"
             alt=""
           />
-          Grand Harbor
+          {location}
         </span>
         <div className="flex items-center gap-2">
           <button className="px-3 py-[3px] bg-white border border-[#f9f9f9] flex items-center gap-0.5 rounded-[26px] text-[14px] font-light text-[#343d41]">
@@ -30,12 +31,12 @@ const HousesCard = () => {
     bg-[#0000005b] backdrop-blur-[2px]"
       >
         <span className="text-[16px] leading-6 font-normal text-white">
-          Urban Elegance
+          {name}
         </span>
 
         <div className="flex items-center gap-2">
           <h2 className="text-[16px] leading-6 font-normal text-white">
-            $ 9000
+            $ {price}
           </h2>
         </div>
       </div>
