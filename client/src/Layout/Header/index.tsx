@@ -7,6 +7,7 @@ import {
 import { navbar } from "../../Constants/navbar";
 import { CircleUserRound } from "lucide-react";
 import SaveToken from "../../Featured/Components/SaveToken";
+import { Link } from "@tanstack/react-router";
 
 const Header = () => {
   return (
@@ -48,12 +49,14 @@ const Header = () => {
         <ul className="flex items-center justify-center max-w-[600px] p-2 rounded-[99px] bg-[#111418] gap-1 ">
           {navbar &&
             navbar?.map((item) => (
-              <li
-                key={item?.id}
-                className="text-[#cacbd4] text-[14px] py-1 px-3 font-light hover:bg-[#f9f9f9] hover:text-[#1c1e1f] rounded-[99px] duration-200 cursor-pointer"
-              >
-                {item?.name}
-              </li>
+              <Link to={item?.path}>
+                <li
+                  key={item?.id}
+                  className="text-[#cacbd4] text-[14px] py-1 px-3 font-light hover:bg-[#f9f9f9] hover:text-[#1c1e1f] rounded-[99px] duration-200 cursor-pointer"
+                >
+                  {item?.name}
+                </li>
+              </Link>
             ))}
         </ul>
       </div>

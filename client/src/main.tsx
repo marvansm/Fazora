@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App.tsx";
 import TanstackQueryProvider from "./Provider/TanstackQueryProvider.tsx";
 import { ClerkProvider } from "@clerk/clerk-react";
+import { Provider } from "react-redux";
+import { store } from "./Store/store.ts";
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
@@ -14,7 +16,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <TanstackQueryProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </TanstackQueryProvider>
     </ClerkProvider>
   </StrictMode>
